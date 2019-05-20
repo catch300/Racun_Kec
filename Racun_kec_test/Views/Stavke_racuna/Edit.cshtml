@@ -1,0 +1,20 @@
+﻿@*
+    Iván Loire - www.iloire.com
+    Please readme README file for license terms.
+
+    ASP.NET MVC3 ACME Invocing app (demo app for training purposes)
+*@
+@using Racun_kec_test.Models
+@model Stavke_racuna
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "Stavke_racuna"))
+{
+    @Html.ValidationSummary(true)
+    <text>
+        @{Html.RenderPartial("EditOrAddInvoiceDetailsPartial", Model);}
+    </text>
+}

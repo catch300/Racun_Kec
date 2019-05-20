@@ -1,0 +1,42 @@
+﻿  
+<nav class="noprint">
+        <ul class="nav" id="adminmenu">
+           
+
+            @if (Request.RawUrl.Contains("/Racun"))
+             {
+                <text>
+                <li class="active">
+                </text>
+             }
+             else{
+                <text>
+                <li>
+                </text>
+             }
+            @Html.ActionLink("Racuni", "Index", "Racun")</li>
+            <li>@Html.ActionLink("( + )", "Create", "Racun")</li>
+            
+           
+        </ul>
+        <ul class="nav" id="adminmenu">
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Admin</a>
+              <ul class="dropdown-menu">
+                <li><a href="@Url.Action("UrediPoduzece", "Korisnik")">Uredi poduzece</a></li>
+                <li><a href="@Url.Action("Index", "Kupac")">Azuriraj Kupca</a></li>
+              </ul>
+            </li>
+        </ul>
+
+         <ul class="nav" id="reportsmenu">
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Reports</a>
+              <ul class="dropdown-menu">
+                <li><a href="@Url.Action("ByYear", "Reports", new { id = DateTime.Now.Year})">@DateTime.Now.Year</a></li>
+                <li><a href="@Url.Action("ByYear", "Reports", new { id = DateTime.Now.Year-1})">@(DateTime.Now.Year-1)</a></li>
+                <li><a href="@Url.Action("QuarterDetails", "Reports")">Details by quarter</a></li>
+              </ul>
+            </li>
+        </ul>
+   </nav>

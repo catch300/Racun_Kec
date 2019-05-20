@@ -1,0 +1,24 @@
+﻿@*
+	Iván Loire - www.iloire.com
+	Please readme README file for license terms.
+
+	ASP.NET MVC3 ACME Invocing app (demo app for training purposes)
+*@
+@using Racun_kec_test.Models
+@model Racun
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<h3>Kreiranje računa</h3>
+
+@using (Html.BeginForm("Create", "Racun",  FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <text>
+        @{Html.RenderPartial("EditOrCreateInvoicePartial", Model);}
+    </text>
+}
+

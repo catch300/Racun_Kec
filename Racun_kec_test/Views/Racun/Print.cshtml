@@ -1,0 +1,175 @@
+﻿@*
+    Iván Loire - www.iloire.com
+    Please readme README file for license terms.
+
+    ASP.NET MVC3 ACME Invocing app (demo app for training purposes)
+*@
+
+@using Racun_kec_test.Models
+@model Racun
+
+
+@{
+    ViewBag.Title = "Pregled računa";
+    Layout = "~/Views/Shared/_LayoutPrint.cshtml";
+}
+
+<table class="invoiceHeader">
+    <tr>
+        <td>
+            <img src="@Url.Content("~/Content/images/T-Com_Logo.png")" style="float:left;" />
+        </td>
+        
+    </tr>
+</table>
+
+<div class="from">
+    <blockquote>
+        <p>
+            <strong>
+                @ViewBag.MyCompany
+            </strong>
+        </p>
+
+        <p>
+
+            ID poduzeca: <strong>@ViewBag.MyCompanyID</strong>
+        </p>
+
+        <p>
+            @ViewBag.MyCompanyAddress
+        </p>
+        <hr />
+        <p>
+            Broj poduzeca: @ViewBag.MyCompanyPhone
+        </p>
+
+        <p>
+            @ViewBag.MyEmail
+        </p>
+
+    </blockquote>
+</div>
+
+<table>
+    <tr>
+        <td width="65%">
+            <h3>Printanje računa za :</h3>
+            <blockquote>
+                <p>
+                    <strong>
+                        @Html.DisplayFor(model => model.Kupac.ime_prezime)
+                    </strong>
+                </p>
+
+                <p>
+                    OIB Kupca:
+                    <strong>
+                        @Html.DisplayFor(model => model.Kupac.oib)
+                    </strong>
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.Kupac.adresa)
+                </p>
+
+                <p>
+                    @Html.DisplayFor(model => model.Kupac.drzava),
+                    @Html.DisplayFor(model => model.Kupac.grad)
+                </p>
+            </blockquote>
+        </td>
+        <td>
+            <h3>Oznaka :</h3>
+            @Html.Raw(Model.oznaka.Replace(Environment.NewLine, "<br/>"))
+        </td>
+    </tr>
+</table>
+
+
+
+<table class="zebra-striped">
+    <thead>
+    <th>
+       Artikl
+    </th>
+    <th width="40">
+        Kolicina
+    </th>
+    
+    <th width="75">
+        cijena
+    </th>
+
+    <th width="80">
+        PDV
+    </th>
+    <th width="100">
+        Ukupno
+    </th>
+    @if (ViewBag.Print != true)
+    {
+        <th width="100"></th>
+    }
+    </thead>
+
+    @foreach (var item in Model.Stavke_Racuna)
+    {
+
+        var invoiceDetail = "invoiceDetail" + item.id_stavke_racuna;
+        <tr id="@invoiceDetail">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Artikl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kolicina)
+            </td>
+            <td>
+                @String.Format("{0:C}", item.cijena)
+            </td>
+
+
+            <td>
+                @String.Format("{0:C}", item.IzracunPDV)
+            </td>
+            <td>
+                @String.Format("{0:C}", item.UkupnoPlusPDV)
+            </td>
+            </tr>
+    }
+
+        <tfoot>
+            <tr>
+                <td class="invoiceFooterTitle">Ukupno:</td>
+                <td>@Model.Stavke_Racuna.Sum(i => i.kolicina) kn</td>
+                <td>-</td>
+                <td>@String.Format("{0:C}", Model.IzracunPDV)</td>
+                <td>@String.Format("{0:C}", Model.NetoUkupno)</td>
+                <td>@String.Format("{0:C}", Model.UkupnoplusPDV)</td>
+
+            </tr>
+        </tfoot>
+    </table>
+
+<table>
+
+    <tr>
+        <td colspan="5" class="invoiceFooterTitle">Osnovica:</td>
+        <td width="200" class="invoiceFooterValue">@String.Format("{0:C}", Model.NetoUkupno)</td>
+    </tr>
+    <tr>
+        <td colspan="5" class="invoiceFooterTitle">PDV:</td>
+        <td width="200" class="invoiceFooterValue">@String.Format("{0:C}", Model.IzracunPDV)</td>
+    </tr>
+
+    
+
+    <tr>
+        <td colspan="5" class="invoiceFooterTitle">Ukupno za platiti: </td>
+        <td class="invoiceFooterValueTotal">@String.Format("{0:C}", Model.UkupnoplusPDV)</td>
+    </tr>
+</table>
+
+
+
+

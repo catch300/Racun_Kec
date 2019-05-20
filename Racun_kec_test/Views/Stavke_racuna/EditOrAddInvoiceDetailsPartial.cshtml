@@ -1,0 +1,59 @@
+﻿@*
+    Iván Loire - www.iloire.com
+    Please readme README file for license terms.
+
+    ASP.NET MVC3 ACME Invocing app (demo app for training purposes)
+*@
+@using Racun_kec_test.Models
+@model Stavke_racuna
+
+
+    <fieldset>
+        @Html.HiddenFor(model => model.id_stavke_racuna)
+        @Html.HiddenFor(model => model.id_racun)
+
+
+        <div class="clearfix">
+            @Html.LabelFor(model => model.Artikl)
+
+            <div class="input">
+                @Html.EditorFor(model => model.Artikl)
+                @Html.ValidationMessageFor(model => model.Artikl)
+            </div>
+        </div>
+
+        <div class="clearfix">
+            @Html.LabelFor(model => model.kolicina)
+
+            <div class="input">
+                @Html.EditorFor(model => model.kolicina, "Number")
+                @Html.ValidationMessageFor(model => model.kolicina)
+            </div>
+        </div>
+
+        <div class="clearfix">
+            @Html.LabelFor(model => model.cijena)
+
+            <div class="input">
+                @Html.EditorFor(model => model.cijena) kn
+                @Html.ValidationMessageFor(model => model.cijena)
+            </div>
+        </div>
+
+
+        <div class="clearfix">
+            @Html.LabelFor(model => model.pdv)
+
+            <div class="input">
+                @Html.EditorFor(model => model.pdv ) %
+                @Html.ValidationMessageFor(model => model.pdv)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Vrijeme)
+
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Save" />
+            <input type="button" class="btn closeModal" value="Close window" />
+        </div>
+    </fieldset>

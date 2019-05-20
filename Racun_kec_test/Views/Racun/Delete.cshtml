@@ -1,0 +1,48 @@
+﻿@*
+    Iván Loire - www.iloire.com
+    Please readme README file for license terms.
+
+    ASP.NET MVC3 ACME Invocing app (demo app for training purposes)
+*@
+@using Racun_kec_test.Models
+@model Racun
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Brisanje Računa</h2>
+
+
+<div class="alert-message warning">
+    <a class="close" href="#">×</a>
+    <p><strong>Sigurno želite obrisati ovaj Račun?</strong></p>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <p>
+            <strong>Kupac: </strong>
+            @Html.DisplayFor(model => model.Kupac.ime_prezime)
+        </p>
+        <p>
+            <strong>Oznaka: </strong>
+            @Html.DisplayFor(model => model.oznaka)
+        </p>
+        <p>
+            <strong>Datum Izdavanja: </strong>
+            @Html.DisplayFor(model => model.datum_izdavanja)
+        </p>
+
+    </fieldset>
+
+}
+    @using (Html.BeginForm())
+    {
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Delete" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
+        </div>
+    }

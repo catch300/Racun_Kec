@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Racun_kec_test.Models.Kupac>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista Kupaca</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ime_prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.drzava)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oib)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ime_prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.grad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.drzava)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oib)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_kupac }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_kupac }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_kupac })
+            </td>
+        </tr>
+    }
+
+</table>

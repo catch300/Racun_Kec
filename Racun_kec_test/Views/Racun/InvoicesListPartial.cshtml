@@ -1,0 +1,64 @@
+﻿@*
+    Iván Loire - www.iloire.com
+    Please readme README file for license terms.
+
+    ASP.NET MVC3 ACME Invocing app (demo app for training purposes)
+*@
+
+@using Racun_kec_test.Models
+@model IEnumerable<Racun>
+
+
+<table class="zebra-striped">
+    <thead>
+    <th width="30">
+        ID
+    </th>
+    <th>
+        Kupac
+    </th>
+    <th width="35%">
+        Račun
+    </th>
+    <th width="90">
+        Ukupno za platiti
+    </th>
+    <th width="80">
+        Datum izdavanja
+    </th>
+    
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td># @item.broj_racuna</td>
+            <td>
+                <a href="@Url.Action("Details", "Kupac", new { id=item.id_kupac})">
+                    @Html.DisplayFor(modelItem => item.Kupac.ime_prezime)
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Racun", new { id = item.id_racun })">
+                    @Html.Display(item.oznaka)
+                </a>
+            </td>
+            <td nowrap="nowrap" align="right" style="align:text-right">
+                @String.Format("{0:C}", item.UkupnoplusPDV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datum_izdavanja)
+            </td>
+            
+        </tr>
+    }
+
+    <tfoot>
+        <tr>
+            <td colspan=3><span class="label">TOTALS: </span></td>
+            <td nowrap="nowrap">@String.Format("{0:C}", Model.Sum(i => i.UkupnoplusPDV))</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
