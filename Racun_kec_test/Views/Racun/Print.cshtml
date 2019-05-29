@@ -89,22 +89,26 @@
 
 <table class="zebra-striped">
     <thead>
+
+        <th width="10">
+            Šifra
+        </th>
     <th>
-       Artikl
+      Naziv artikla
     </th>
     <th width="40">
-        Kolicina
+        Količina
     </th>
     
     <th width="75">
-        cijena
+        Prodajna cijena
     </th>
 
     <th width="80">
-        PDV
+        PDV (%)
     </th>
     <th width="100">
-        Ukupno
+        Osnovica
     </th>
     @if (ViewBag.Print != true)
     {
@@ -116,34 +120,37 @@
     {
 
         var invoiceDetail = "invoiceDetail" + item.id_stavke_racuna;
-        <tr id="@invoiceDetail">
+<tr id="@invoiceDetail">
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Artikl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.kolicina)
-            </td>
-            <td>
-                @String.Format("{0:C}", item.cijena)
-            </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.id_stavke_racuna)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Artikl)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.kolicina)
+    </td>
+    <td>
+        @String.Format("{0:C}", item.cijena)
+    </td>
 
 
-            <td>
-                @String.Format("{0:C}", item.IzracunPDV)
-            </td>
-            <td>
-                @String.Format("{0:C}", item.UkupnoPlusPDV)
-            </td>
-            </tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.pdv)
+    </td>
+    <td>
+        @String.Format("{0:C}", item.UkupnoPlusPDV)
+    </td>
+</tr>
     }
 
         <tfoot>
             <tr>
                 <td class="invoiceFooterTitle">Ukupno:</td>
-                <td>@Model.Stavke_Racuna.Sum(i => i.kolicina) kn</td>
-                <td>-</td>
-                <td>@String.Format("{0:C}", Model.IzracunPDV)</td>
+                <td></td>
+                <td>@Model.Stavke_Racuna.Sum(i => i.kolicina) </td>
+
                 <td>@String.Format("{0:C}", Model.NetoUkupno)</td>
                 <td>@String.Format("{0:C}", Model.UkupnoplusPDV)</td>
 
@@ -158,7 +165,7 @@
         <td width="200" class="invoiceFooterValue">@String.Format("{0:C}", Model.NetoUkupno)</td>
     </tr>
     <tr>
-        <td colspan="5" class="invoiceFooterTitle">PDV:</td>
+        <td colspan="5" class="invoiceFooterTitle">PDV</td>
         <td width="200" class="invoiceFooterValue">@String.Format("{0:C}", Model.IzracunPDV)</td>
     </tr>
 

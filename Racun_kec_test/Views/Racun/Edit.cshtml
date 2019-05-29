@@ -66,7 +66,7 @@
                       $('.modal-body p.body').html(data);
                       $(this).addClass("done");
                       $('#my-modal').modal('show');
-                      $('#Artikl').focus();
+                      $('#Article').focus();
                   },
                   error: function (err) {
                       writeError('msgErrorNewInvoiceDetails', err);
@@ -131,7 +131,7 @@
 
         <td width="60%">
             <p>
-                <a href="@Url.Action("Create", "Stavke_racuna", new { id = Model.id_racun })"  id_racun="@Model.id_racun" class="btn primary newDetailInvoice">Kreiraj novu stavku </a>
+                <a href="@Url.Action("Create", "Stavke_racuna", new { id = Model.id_racun })"  idInvoice="@Model.id_racun" class="btn primary newDetailInvoice">Kreiraj novu stavku </a>
             </p>
             <div id="msgErrorNewInvoiceDetails"></div>
 

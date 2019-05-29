@@ -1,30 +1,19 @@
-﻿  
-<nav class="noprint">
-        <ul class="nav" id="adminmenu">
-           
+﻿  <nav class="noprint">
+        <ul class="nav" id="menu">
+          
 
-            @if (Request.RawUrl.Contains("/Racun"))
-             {
-                <text>
-                <li class="active">
-                </text>
-             }
-             else{
-                <text>
-                <li>
-                </text>
-             }
-            @Html.ActionLink("Racuni", "Index", "Racun")</li>
-            <li>@Html.ActionLink("( + )", "Create", "Racun")</li>
             
-           
+            @Html.ActionLink("Računi", "Index", "Racun", new { proposal = false }, null)</li>
+            <li>@Html.ActionLink("( + )", "Create", "Racun", new { proposal = false }, null)</li>
+            
+            
         </ul>
         <ul class="nav" id="adminmenu">
             <li class="dropdown" data-dropdown="dropdown">
               <a href="#" class="dropdown-toggle">Admin</a>
               <ul class="dropdown-menu">
-                <li><a href="@Url.Action("UrediPoduzece", "Korisnik")">Uredi poduzece</a></li>
-                <li><a href="@Url.Action("Index", "Kupac")">Azuriraj Kupca</a></li>
+                <li><a href="@Url.Action("Index", "Provider")">Ažuriranje poduzeća</a></li>
+                <li><a href="@Url.Action("Index", "Kupac")">Ažuriranje kupca</a></li>
               </ul>
             </li>
         </ul>

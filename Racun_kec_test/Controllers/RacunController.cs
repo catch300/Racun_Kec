@@ -126,7 +126,7 @@ namespace Racun_kec_test.Controllers
             return View(invoices_paged);
         }
 
-        // GET: Racun/Details/5
+        // GET: Racun/Print/5
         public ActionResult Print(int? id)
         {
 
@@ -173,6 +173,7 @@ namespace Racun_kec_test.Controllers
         {
 
             Racun racun = new Racun();
+            racun.datum_izdavanja = DateTime.Now;
             
                 //generate next invoice number
                 var sljedeci_racun = (from inv in db.Racuni
@@ -240,7 +241,7 @@ namespace Racun_kec_test.Controllers
                 racun.datum_izdavanja = DateTime.Now;
 
                 ViewBag.Warning = "The current item is going to be converted on Invoice. A new InvoiceNumber has been pre-assigned.  Click on 'Save' to continue.";
-                ViewBag.PokaziRacun = ViewData["PokaziRacun"] = false;
+                ViewBag.PokaziRacun  = false;
             }
            
             
@@ -272,7 +273,6 @@ namespace Racun_kec_test.Controllers
                         ModelState.AddModelError("broj_racuna", "Račun s tim brojem već postoji");
                         return View(racun);
                     }
-                racun.datum_izdavanja = DateTime.Now;
                 db.Entry(racun).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

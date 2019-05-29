@@ -67,6 +67,7 @@ namespace Racun_kec_test.Controllers
                     i.id_racun = id.Value;
                     i.Racun = invoice;
                     i.kolicina = 1;
+                    i.cijena = 1;
                     i.pdv = 25;
                     i.Vrijeme = DateTime.Now;
 
@@ -102,7 +103,6 @@ namespace Racun_kec_test.Controllers
                 var invoice = (from i in db.Racuni where i.id_racun == invoicedetails.id_racun select i).FirstOrDefault();
                 ViewBag.Invoice = invoice;
 
-               // return RedirectToAction("Edit", "Racun", db.Stavke_racuna.Where(i => i.id_racun == invoicedetails.id_racun));
                 return PartialView("Index", db.Stavke_racuna.Where(i => i.id_racun == invoicedetails.id_racun));
             }
 

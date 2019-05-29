@@ -94,3 +94,4 @@ D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\bin\itextsharp.xml
 D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_test.Migrations.mjerne_jedinice.resources
 D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\bin\Rotativa.dll
 D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_test.Migrations.final.resources
+D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_test.csprojAssemblyReference.cache
