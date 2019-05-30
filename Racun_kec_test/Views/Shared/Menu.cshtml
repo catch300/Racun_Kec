@@ -3,7 +3,7 @@
           
 
             
-            @Html.ActionLink("Računi", "Index", "Racun", new { proposal = false }, null)</li>
+           <li >@Html.ActionLink("Popis računa", "Index", "Racun", new { proposal = false }, null)</li>
             <li>@Html.ActionLink("( + )", "Create", "Racun", new { proposal = false }, null)</li>
             
             
@@ -12,20 +12,11 @@
             <li class="dropdown" data-dropdown="dropdown">
               <a href="#" class="dropdown-toggle">Admin</a>
               <ul class="dropdown-menu">
-                <li><a href="@Url.Action("Index", "Provider")">Ažuriranje poduzeća</a></li>
+                <li><a href="@Url.Action("PoduzeceIndex", "Korisnik")">Ažuriranje poduzeća</a></li>
                 <li><a href="@Url.Action("Index", "Kupac")">Ažuriranje kupca</a></li>
               </ul>
             </li>
         </ul>
 
-         <ul class="nav" id="reportsmenu">
-            <li class="dropdown" data-dropdown="dropdown">
-              <a href="#" class="dropdown-toggle">Reports</a>
-              <ul class="dropdown-menu">
-                <li><a href="@Url.Action("ByYear", "Reports", new { id = DateTime.Now.Year})">@DateTime.Now.Year</a></li>
-                <li><a href="@Url.Action("ByYear", "Reports", new { id = DateTime.Now.Year-1})">@(DateTime.Now.Year-1)</a></li>
-                <li><a href="@Url.Action("QuarterDetails", "Reports")">Details by quarter</a></li>
-              </ul>
-            </li>
-        </ul>
+        
    </nav>

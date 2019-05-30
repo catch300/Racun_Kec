@@ -197,6 +197,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bootstrap.css" />
+    <Content Include="Assets\dataTables.bootstrap.css" />
+    <Content Include="Assets\font-awesome.css" />
+    <Content Include="Assets\main.css" />
+    <Content Include="Assets\MoneAdmin.css" />
+    <Content Include="Assets\Scripts\bootstrap.min.js" />
+    <Content Include="Assets\Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Assets\Scripts\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Assets\Site.css" />
+    <Content Include="Assets\style.css" />
+    <Content Include="Assets\theme.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -399,6 +410,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutPrint.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
