@@ -14,9 +14,8 @@ namespace Racun_kec_test.Models
         public string email { get; set; }
 
         [Display(Name = "Lozinka")]
+        [DataType(DataType.Password)]
         public string lozinka { get; set; }
 
-        [Display(Name = "Ponovno upisite lozinku")]
-        public string lozinkaConfim { get; set; }
     }
 }

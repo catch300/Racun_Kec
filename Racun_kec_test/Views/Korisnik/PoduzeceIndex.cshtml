@@ -1,6 +1,6 @@
 ﻿@{
 
-    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+   
     int brojac = 1;
 }
 @using Racun_kec_test.Models
@@ -52,7 +52,6 @@
                 </div>
             </div>
             <hr />
-            @Html.ActionLink("Dodaj Poduzeće", "KreiranjePoduzeca", new { @class = "btn primary" })
             <br />
             <br />
             <div class="table-responsive">
@@ -84,9 +83,8 @@
                             <td class="col-md-2">@p.ziro_racun</td>
                             <td class="col-md-2">@p.oib</td>
                             <td class="col-md-3">   
-                                @Html.ActionLink("Uredi", "UrediPoduzece", new { @id = @p.id_poduzece }, new { @class = "btn btn-primary btn-xs btn-grad" })
-                                @Html.ActionLink("Detalji", "DetaljiPoduzeca", new { @id = @p.id_poduzece }, new { @class = "btn btn-success btn-xs btn-grad" })
-                                @Html.ActionLink("Briši", "BrisanjePoduzeca", new { @id = @p.id_poduzece }, new { @class = "btn btn-danger btn-xs btn-grad" })
+                                @Html.ActionLink("Uredi", "UrediPoduzece", new { @id = @p.id_poduzece }, new { @class = "btn primary " })
+                                @Html.ActionLink("Briši", "BrisanjePoduzeca", new { @id = @p.id_poduzece }, new { @class = "btn danger " })
                             </td>
                         </tr>
                                 brojac++;
@@ -105,9 +103,7 @@
     
     <!--END MAIN WRAPPER -->
     <!-- FOOTER -->
-    <div id="footer">
-        <p>&copy;  binarytheme &nbsp;2019 &nbsp;</p>
-    </div>
+    
     <!--END FOOTER -->
     <!-- GLOBAL SCRIPTS -->
     <script src="~/assets/plugins/jquery-2.0.3.min.js"></script>

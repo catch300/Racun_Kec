@@ -11,6 +11,7 @@ using Racun_kec_test.Models;
 
 namespace Racun_kec_test.Controllers
 {
+    
     public class KupacController : Controller
     {
         private BazaDbContext db = new BazaDbContext();

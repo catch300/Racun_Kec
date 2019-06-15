@@ -1,9 +1,24 @@
 ﻿<span class="login">
-@if(Request.IsAuthenticated) {
-    <text>¡Hola <strong>@User.Identity.Name</strong>!
-    [ @Html.ActionLink("Cerrar sesión", "LogOff", "Account") ]</text>
-}
-else {
-    @:[ @Html.ActionLink("Iniciar sesión", "LogOn", "Account") ]
-}
+
+    @if (Session["Username"] != null)
+    {
+        <text>Pozdrav <strong>@Session["Username"]</strong>!
+        [ @Html.ActionLink("Odjava", "Prijava", "Prijava") ]</text>
+    }
+    else
+    {
+        @:[ @Html.ActionLink("Prijava", "Prijava", "Prijava") ]
+    }
+
+
+
+    @*@if (!Request.IsAuthenticated)
+    {
+        <text>Pozdrav <strong>@Session["Username"]</strong>!
+        [ @Html.ActionLink("Odjava", "LogOff", "Account") ]</text>
+    }
+    else
+    {
+        @:[ @Html.ActionLink("Prijava", "LogOn", "Account") ]
+    }*@
 </span>

@@ -32,21 +32,25 @@ namespace Racun_kec_test.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Prijava (Login obj)
-        { 
-           
+        {
+
             foreach (Korisnik kor in _dbContext.Korisnici)
             {
-
-                if (kor.lozinka == obj.lozinka && kor.email == obj.email)
+                if (ModelState.IsValid)
                 {
-                    // SELECT * FROM student WHERE id_student == SESSION[]
-                    Session["UserID"] = kor.id_korisnik;
-                    Session["Username"] = kor.ime_prezime;
-                    return RedirectToAction("index_korisnik", "Korisnik");
+                    if (kor.lozinka == obj.lozinka && kor.email == obj.email)
+                    {
+                        // SELECT * FROM student WHERE id_student == SESSION[]
+                        Session["UserID"] = kor.id_korisnik;
+                        Session["Username"] = kor.ime_prezime;
+                        return RedirectToAction("index_korisnik", "Korisnik");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Lozinka ili email su netočni, pokušajte ponovno!");
+                    }
                 }
-
             }
-
             ViewBag.Message = "Lozinka ili email su netočni, pokušajte ponovno!";
             return RedirectToAction("Prijava");
 

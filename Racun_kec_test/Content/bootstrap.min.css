@@ -13,7 +13,14 @@ sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
 sup{top:-0.5em;}
 sub{bottom:-0.25em;}
 img{border:0;-ms-interpolation-mode:bicubic;}
-button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}
+button,input,select,textarea
+{
+font-size:100%;
+margin:0;
+vertical-align:baseline;
+*vertical-align:middle;
+margin-left:5px;
+}
 button,input{line-height:normal;*overflow:visible;}
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;}

@@ -14,6 +14,7 @@ using Rotativa;
 
 namespace Racun_kec_test.Controllers
 {
+    
     public class RacunController : Controller
     {
         private BazaDbContext db = new BazaDbContext();
@@ -33,25 +34,14 @@ namespace Racun_kec_test.Controllers
             ViewBag.TotalWithVAT = invoices.Sum(i => i.UkupnoplusPDV);
         }
 
-        public ViewResultBase Search(string text, string from, string to, int? page, int? pagesize)
+        public ViewResultBase Search(string text,  int? page, int? pagesize)
         {
             Session["invoiceText"] = text;
-            Session["invoiceFrom"] = from;
-            Session["invoiceTo"] = to;
+
 
             var invoices = db.Racuni.Include(i => i.Stavke_Racuna).Include(i => i.Kupac);
 
-            if (!string.IsNullOrWhiteSpace(from))
-            {
-                if (DateTime.TryParse(from, CultureInfo.CurrentUICulture, DateTimeStyles.AssumeLocal, out DateTime fromDate))
-                    invoices = invoices.Where(t => t.datum_izdavanja >= fromDate);
-            }
-            if (!string.IsNullOrWhiteSpace(to))
-            {
-                
-                if (DateTime.TryParse(to, CultureInfo.CurrentUICulture, DateTimeStyles.AssumeLocal, out DateTime toDate))
-                    invoices = invoices.Where(t => t.datum_izdavanja <= toDate);
-            }
+           
 
             if (!string.IsNullOrWhiteSpace(text))
             {
@@ -96,14 +86,13 @@ namespace Racun_kec_test.Controllers
             if (filter == "clear")
             {
                 Session["invoiceText"] = null;
-                Session["invoiceFrom"] = null;
-                Session["invoiceTo"] = null;
+                
             }
             else
             {
                 if ((Session["invoiceText"] != null) || (Session["invoiceFrom"] != null) || (Session["invoiceTo"] != null))
                 {
-                    return RedirectToAction("Search", new { text = Session["invoiceText"], from = Session["invoiceFrom"], to = Session["invoiceTo"] });
+                    return RedirectToAction("Search", new { text = Session["invoiceText"] });
                 }
             }
             #endregion
@@ -214,7 +203,7 @@ namespace Racun_kec_test.Controllers
 
                 db.Racuni.Add(racun);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id = racun.id_racun });
+                return RedirectToAction("Edit", "Racun", new { id = racun.id_racun });
             }
 
 

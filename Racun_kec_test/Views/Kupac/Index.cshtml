@@ -1,58 +1,129 @@
-﻿@model IEnumerable<Racun_kec_test.Models.Kupac>
+﻿
 
 @{
-    ViewBag.Title = "Index";
+
+
+    int brojac = 1;
 }
 
-<h2>Lista Kupaca</h2>
+@using Racun_kec_test.Models
+@model IEnumerable<Racun_kec_test.Models.Kupac>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="UTF-8" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ime_prezime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.adresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.grad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.drzava)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.oib)
-        </th>
-        <th></th>
-    </tr>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <!-- GLOBAL STYLES -->
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+    <link rel="stylesheet" href="~/assets/css/theme.css" />
+    <link rel="stylesheet" href="~/assets/css/MoneAdmin.css" />
+    <link rel="stylesheet" href="~/assets/plugins/Font-Awesome/css/font-awesome.css" />
+    <!--END GLOBAL STYLES -->
+    <!-- PAGE LEVEL STYLES -->
+    <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- END PAGE LEVEL  STYLES -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ime_prezime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.adresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.grad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.drzava)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oib)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id_kupac }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_kupac }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_kupac })
-            </td>
-        </tr>
-    }
 
-</table>
+
+
+<body class="padTop53 ">
+    <!--PAGE CONTENT -->
+    <div id="content">
+        <div class="inner">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <h2> Popis Kupaca </h2>
+
+                </div>
+            </div>
+            <hr />
+            <br />
+            <br />
+
+            
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ime i prezime</th>
+                            <th>Adresa</th>
+                            <th>Grad</th>
+                            <th>Država</th>
+                            <th>OIB</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            foreach (Kupac p in Model)
+                            {
+
+                                <tr>
+                                    <td class="col-md-1">@brojac</td>
+                                    <td class="col-md-2">@p.ime_prezime</td>
+                                    <td class="col-md-2">@p.adresa </td>
+                                    <td class="col-md-1">@p.grad</td>
+                                    <td class="col-md-2">@p.drzava</td>
+                                    <td class="col-md-2">@p.oib</td>
+
+                                    <td class="col-md-3">
+                                        @Html.ActionLink("Uredi", "UrediPoduzece", new { @id = @p.id_kupac }, new { @class = "btn primary " })
+                                        @Html.ActionLink("Briši", "BrisanjePoduzeca", new { @id = @p.id_kupac }, new { @class = "btn danger " })
+                                    </td>
+                                </tr>
+                                brojac++;
+                            }
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!--END PAGE CONTENT -->
+    <!--END MAIN WRAPPER -->
+    <!-- FOOTER -->
+    <!--END FOOTER -->
+    <!-- GLOBAL SCRIPTS -->
+    <script src="~/assets/plugins/jquery-2.0.3.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <!-- END GLOBAL SCRIPTS -->
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="~/assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>
