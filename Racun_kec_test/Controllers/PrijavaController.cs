@@ -43,7 +43,7 @@ namespace Racun_kec_test.Controllers
                         // SELECT * FROM student WHERE id_student == SESSION[]
                         Session["UserID"] = kor.id_korisnik;
                         Session["Username"] = kor.ime_prezime;
-                        return RedirectToAction("index_korisnik", "Korisnik");
+                        return RedirectToAction("Index", "Racun");
                     }
                     else
                     {

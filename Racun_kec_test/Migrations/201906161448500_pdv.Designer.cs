@@ -7,13 +7,13 @@ namespace Racun_kec_test.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Prijava_fix : IMigrationMetadata
+    public sealed partial class pdv : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Prijava_fix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(pdv));
         
         string IMigrationMetadata.Id
         {
-            get { return "201906151318033_Prijava_fix"; }
+            get { return "201906161448500_pdv"; }
         }
         
         string IMigrationMetadata.Source

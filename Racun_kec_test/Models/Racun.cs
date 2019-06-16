@@ -56,6 +56,7 @@ namespace Racun_kec_test.Models
 
         public virtual ICollection<Usluga> Usluge { get; set; }
         #region Calculated Fields
+        
         public decimal IzracunPDV
         {
             get
@@ -64,9 +65,7 @@ namespace Racun_kec_test.Models
             }
         }
 
-        /// <summary>
-        /// Total before TAX
-        /// </summary>
+      
         public decimal NetoUkupno
         {
             get
@@ -78,11 +77,9 @@ namespace Racun_kec_test.Models
             }
         }
 
-        
 
-        /// <summary>
-        /// Total with tax
-        /// </summary>
+
+        
         public decimal UkupnoplusPDV
         {
             get

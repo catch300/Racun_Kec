@@ -19,9 +19,7 @@
     <a class="close" href="#">×</a>
     <p><strong>Sigurno želite obrisati ovaj Račun?</strong></p>
 </div>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+
     <fieldset>
         <p>
             <strong>Kupac: </strong>
@@ -38,11 +36,11 @@
 
     </fieldset>
 
-}
+
     @using (Html.BeginForm())
     {
         <div class="actions">
-            <input type="submit" class="btn primary" value="Delete" />
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
+            <input type="submit" class="btn primary" value="Obriši" />
+            @Html.ActionLink("Povratak", "Index", null, new { @class = "btn" })
         </div>
     }

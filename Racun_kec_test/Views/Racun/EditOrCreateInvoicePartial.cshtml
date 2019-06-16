@@ -26,99 +26,90 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-signin">
+        <div class="form-horizontal">
+
+
             @Html.HiddenFor(model => model.id_racun)
 
-
-
             <p></p>
             <p></p>
-            @Html.LabelFor(model => model.broj_racuna, new { @class = "control-label" })
+
+            <div class="form-group">
+            @Html.LabelFor(model => model.broj_racuna, new { @class = "control-label col-md-2" })
 
 
             @if (Model != null && Model.id_racun > 0)
             {
-                <text>
+                <div class="col-md-10">
                     @Html.EditorFor(model => model.broj_racuna, new { htmlAttributes = new { @class = "form-control", placeholder = "Broj racuna" } })
                     @Html.HiddenFor(model => model.broj_racuna)
-                </text>
+                </div>
             }
             else
             {
-                <text>
+                <div class="col-md-10">
                     @Html.EditorFor(model => model.broj_racuna, new { htmlAttributes = new { @class = "form-control", placeholder = "Broj racuna" } })
-                </text>
+
+                </div>
             }
 
             @Html.ValidationMessageFor(model => model.broj_racuna, "", new { @class = "text-danger" })
-            <p></p>
-            <p></p>
+        </div>
 
-
-
+        <div class="form-group">
             @Html.LabelFor(model => model.naslov, new { @class = "control-label" })
 
 
             @Html.EditorFor(model => model.naslov, new { htmlAttributes = new { @class = "form-control", placeholder = "Naslov" } })
             @Html.ValidationMessageFor(model => model.naslov, "", new { @class = "text-danger" })
-            <p></p>
-            <p></p>
+        </div>
 
 
-
+        <div class="form-group">
             @Html.LabelFor(x => Model.id_kupac, new { @class = "control-label" })
             <br />
 
             @Html.DropDownListFor(model => model.id_kupac, ViewData["Kupac"] as IEnumerable<SelectListItem>, "- Odaberite Kupca -", new { htmlAttributes = new { @Class = "form-control" } })
             @Html.ValidationMessageFor(x => x.id_kupac, "", new { @class = "text-danger" })
-            <p></p>
-            <p></p>
+        </div>
 
 
-
+        <div class="form-group">
             @Html.LabelFor(model => model.oznaka, new { @class = "control-label" })
 
 
             @Html.EditorFor(model => model.oznaka, new { htmlAttributes = new { @class = "form-control", placeholder = "oznaka" } })
             @Html.ValidationMessageFor(model => model.oznaka, "", new { @class = "text-danger" })
-            <p></p>
-            <p></p>
+        </div>
 
 
 
 
-
+        <div class="form-group">
             @Html.LabelFor(model => model.datum_izdavanja, new { @class = "control-label" })
 
 
             @Html.EditorFor(model => model.datum_izdavanja, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.datum_izdavanja, "", new { @class = "text-danger" })
-            <p></p>
-            <p></p>
-
-
         </div>
+     
 
-        <p></p>
-        <p></p>
+  </div>
+
+       
     }
 
 
 
     <div class="actions">
-        <input type="submit" class="btn primary" value="Save" />
+        <input type="submit" class="btn primary" value="Spremi" />
         @if (Model != null && Model.id_racun > 0)
         {<text>
-                @Html.ActionLink("Delete", "Delete", new { id = Model.id_racun }, new { @class = "btn" })
+                @Html.ActionLink("Obriši", "Delete", new { id = Model.id_racun }, new { @class = "btn" })
         </text>
     }
-        @Html.ActionLink("Print", "Print", "Racun", new { id = Model.id_racun }, new { target = "_blank", @class = "btn" })
+       
 
-
-        @if (ViewBag.PokaziRacun == true)
-        {
-            @Html.ActionLink("Napravi račun", "Edit", "Racun", new { id = Model.id_racun, izradiracun = true }, new { @class = "btn" })
-        }
 
 
     </div>

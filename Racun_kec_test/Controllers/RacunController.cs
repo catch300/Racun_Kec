@@ -270,7 +270,7 @@ namespace Racun_kec_test.Controllers
         }
 
         // GET: Racun/Delete/5
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Delete(int? id)
         {
 
@@ -281,7 +281,6 @@ namespace Racun_kec_test.Controllers
 
         // POST: Racun/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             

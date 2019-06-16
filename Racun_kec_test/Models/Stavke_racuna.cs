@@ -24,15 +24,16 @@ namespace Racun_kec_test.Models
         public string Artikl { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-        [Range(-100000, 100000, ErrorMessage = "Količina mora biti između 1 and 100000")]
+        [Range(1, 100000, ErrorMessage = "Količina ne smije biti negativan broj")]
         public int kolicina { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-        [Range(0.01, 999999999, ErrorMessage = "Cijena mora biti između 0.01 and 999999999")]
+        [Range(0.01, 999999999, ErrorMessage = "Cijena ne smije biti negativan broj")]
+        [DisplayFormat(DataFormatString = "{0:#.##}", ApplyFormatInEditMode = true)]
         public decimal cijena { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-        [Range(0.00, 100, ErrorMessage = "PDV mora biti % između 0 i 100")]
+        [Range(0.00, 100, ErrorMessage = "PDV mora biti između 0 i 100")]
         public decimal pdv { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
@@ -44,7 +45,7 @@ namespace Racun_kec_test.Models
 
 
         #region Calculated Fields
-
+        
         public decimal Ukupno
         {
             get
@@ -52,7 +53,7 @@ namespace Racun_kec_test.Models
                 return kolicina * cijena;
             }
         }
-
+        
         public decimal IzracunPDV
         {
             get
@@ -60,7 +61,7 @@ namespace Racun_kec_test.Models
                 return UkupnoPlusPDV - Ukupno;
             }
         }
-
+        
         public decimal UkupnoPlusPDV
         {
             get

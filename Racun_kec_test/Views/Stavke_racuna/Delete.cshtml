@@ -14,7 +14,7 @@
 
 <div class="alert-message warning">
     <a class="close" href="#">×</a>
-    <p><strong>Sigurno želite obrisati ovu stavku?</strong></p>
+    <p><strong>Sigurno želite obrisati ovaj artikl?</strong></p>
 </div>
 
 <fieldset>
@@ -24,23 +24,23 @@
         @Html.DisplayFor(model => model.Racun.naslov)
     </p>
     <p>
-        <strong>Article: </strong>
+        <strong>Naziv artikla: </strong>
         @Html.DisplayFor(model => model.Artikl)
     </p>
     <p>
-        <strong>Qty: </strong>
+        <strong>Količina: </strong>
         @Html.DisplayFor(model => model.kolicina)
     </p>
     <p>
-        <strong>Price: </strong>
+        <strong>Cijena: </strong>
         @Html.DisplayFor(model => model.cijena)
     </p>
     <p>
-        <strong>VAT: </strong>
+        <strong>PDV: </strong>
         @Html.DisplayFor(model => model.pdv)
     </p>
     <p>
-        <strong>TimeStamp: </strong>
+        <strong>Vrijeme kreiranja: </strong>
         @Html.DisplayFor(model => model.Vrijeme)
     </p>
 </fieldset>
@@ -48,7 +48,7 @@
 @using (Html.BeginForm())
 {
     <div class="actions">
-        <input type="submit" class="btn primary" value="Delete" />
-        <input type="button" class="btn closeModal" value="Close window" />
+        <input type="submit" class="btn primary" value="Obriši" />
+        <input type="button" class="btn closeModal" value="Zatvori" />
     </div>
 }

@@ -73,6 +73,19 @@
 
      <script>
         
+         $(document).ready(function () {
+             $.tablesorter.addParser({
+                 id: "datetime",
+                 is: function (s) {
+                     return false;
+                 },
+                 format: function (s, table) {
+                     s = s.replace(/\-/g, "/");
+                     s = s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/, "$3/$2/$1");
+                     return $.tablesorter.formatFloat(new Date(s).getTime());
+                 },
+                 type: "numeric"
+             });
 
              $.tablesorter.addParser({
                  id: 'decimal',
@@ -91,6 +104,7 @@
                  type: 'numeric'
              });
 
+             $(".datefield").datepicker({ "dateFormat": 'dd/mm/yy' });
 
              try { //if no data will raise error ¿?
                  if (typeof (sorter_options) != "undefined") {

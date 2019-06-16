@@ -17,10 +17,10 @@
         @Html.HiddenFor(model => model.id_kupac)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.naziv, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ime_prezime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.naziv, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.naziv, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ime_prezime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ime_prezime, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -58,12 +58,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Spremi" class="btn primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Povratak", "Index")
 </div>

@@ -51,7 +51,7 @@
                   $("#invoiceDetailsList").html(data);
 
               }).error(function (error, status, a, b) {
-                  writeError('msgError', 'Error processing request. Please check errors and try again!');
+                  writeError('msgError', 'Greška tijekom spremanja. Provjerite greške i pokušajte ponovno!');
                   $('.modal-body p.body').html(error.responseText);
 
               });
@@ -131,7 +131,7 @@
 
         <td width="60%">
             <p>
-                <a href="@Url.Action("Create", "Stavke_racuna", new { id = Model.id_racun })"  idInvoice="@Model.id_racun" class="btn primary newDetailInvoice">Kreiraj novu stavku </a>
+                <a href="@Url.Action("Create", "Stavke_racuna", new { id = Model.id_racun })"  idInvoice="@Model.id_racun" class="btn primary newDetailInvoice">Dodaj novi artikl</a>
             </p>
             <div id="msgErrorNewInvoiceDetails"></div>
 
@@ -147,7 +147,7 @@
 <div id="my-modal" class="modal hide fade">
     <div class="modal-header">
         <a href="#" class="close">&times;</a>
-        <h3>Stavka računa</h3>
+        <h3>Artikl</h3>
     </div>
     <div class="modal-body">
         <div id="msgError"></div>

@@ -69,7 +69,7 @@ namespace Racun_kec_test.Controllers
                     i.Racun = invoice;
                     i.kolicina = 1;
                     i.cijena = 1;
-                    i.pdv = 25;
+                    i.pdv = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["DefaultVAT"]); 
                     i.Vrijeme = DateTime.Now;
 
                     if (invoice.Stavke_Racuna.Count == 0)

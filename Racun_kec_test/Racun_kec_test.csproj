@@ -182,9 +182,13 @@
     <Compile Include="Migrations\201905161807549_final.Designer.cs">
       <DependentUpon>201905161807549_final.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906151318033_Prijava_fix.cs" />
-    <Compile Include="Migrations\201906151318033_Prijava_fix.Designer.cs">
-      <DependentUpon>201906151318033_Prijava_fix.cs</DependentUpon>
+    <Compile Include="Migrations\201906161448500_pdv.cs" />
+    <Compile Include="Migrations\201906161448500_pdv.Designer.cs">
+      <DependentUpon>201906161448500_pdv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906161524349_pdv_fix.cs" />
+    <Compile Include="Migrations\201906161524349_pdv_fix.Designer.cs">
+      <DependentUpon>201906161524349_pdv_fix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Paging\IPagedList.cs" />
@@ -440,8 +444,11 @@
     <EmbeddedResource Include="Migrations\201905161807549_final.resx">
       <DependentUpon>201905161807549_final.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906151318033_Prijava_fix.resx">
-      <DependentUpon>201906151318033_Prijava_fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906161448500_pdv.resx">
+      <DependentUpon>201906161448500_pdv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906161524349_pdv_fix.resx">
+      <DependentUpon>201906161524349_pdv_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
