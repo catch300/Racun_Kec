@@ -216,6 +216,7 @@
     <Content Include="Assets\Site.css" />
     <Content Include="Assets\style.css" />
     <Content Include="Assets\theme.css" />
+    <Content Include="BazaPovezivanje\Racun_kec.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -313,6 +314,7 @@
     <Content Include="img\hr.gif" />
     <Content Include="img\s07.gif" />
     <Content Include="img\smece.jpg" />
+    <Content Include="Racun_kec.sql" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />

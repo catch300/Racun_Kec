@@ -51,6 +51,7 @@
 
                 </div>
             </div>
+            <h3>Podaci o poduzeću</h3>
             <hr />
             <br />
             <br />
@@ -84,7 +85,7 @@
                             <td class="col-md-2">@p.oib</td>
                             <td class="col-md-3">   
                                 @Html.ActionLink("Uredi", "UrediPoduzece", new { @id = @p.id_poduzece }, new { @class = "btn primary " })
-                                @Html.ActionLink("Briši", "BrisanjePoduzeca", new { @id = @p.id_poduzece }, new { @class = "btn danger " })
+                               @* @Html.ActionLink("Briši", "BrisanjePoduzeca", new { @id = @p.id_poduzece }, new { @class = "btn danger " })*@
                             </td>
                         </tr>
                                 brojac++;

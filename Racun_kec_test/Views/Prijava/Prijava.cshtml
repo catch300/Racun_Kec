@@ -6,49 +6,55 @@
     ViewBag.Title = "Prijava";
 }
 
-@Html.ValidationSummary(true, "Došlo je f")
-    <div class=col-sm-6>
 
-        @using (Html.BeginForm())
-        {
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
 
 
-            @Html.AntiForgeryToken()
-
-            <div class="form-signin">
-
-                <div class="text-center">
-                    <img src="~/img/logo.png" id="logoimg" alt=" Logo" />
-                </div>
-
-                <p></p>
-                <p></p>
-
-                <p class="text-muted text-center btn-block btn btn-primary ">
-                    Upišite korisničko ime i lozinku
-                </p>
-
-                <p></p>
-                <p></p>
-
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "E-mail adresa" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-
-                <p></p>
-                <p></p>
-
-                @Html.PasswordFor(model => model.lozinka, new { @class = "form-control", placeholder = "Lozinka" })
-                @Html.ValidationMessageFor(model => model.lozinka, "", new { @class = "text-danger" })
+    @using (Html.BeginForm())
+    {
 
 
+        @Html.AntiForgeryToken()
+
+        <div class="form-signin" style="padding-top:20px">
+
+            <div class="text-center">
+                <img src="~/img/logo.png" id="logoimg" alt=" Logo" />
             </div>
 
-            @Html.ValidationSummary(true, "There were some errors. Please fix them and try again")
             <p></p>
             <p></p>
-            // Submit (save) tipka
-            <p><input type="submit" value="Prijavi se" class="btn btn-danger" /></p>
-            <p> @Html.ActionLink("Prijava", "Prijava", new { @class = "btn btn-link" })   |   @Html.ActionLink("Registracija", "Registracija", new { @class = "btn btn-link" })</p>
-        }
 
-    </div>
+            <p class="text-muted text-center btn-block btn btn-primary ">
+                Upišite korisničko ime i lozinku
+            </p>
+
+            <p></p>
+            <p></p>
+
+            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "E-mail adresa" } })
+            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+            <p></p>
+            <p></p>
+
+            @Html.PasswordFor(model => model.lozinka, new { @class = "form-control", placeholder = "Lozinka" })
+            @Html.ValidationMessageFor(model => model.lozinka, "", new { @class = "text-danger" })
+
+
+        </div>
+
+        @Html.ValidationSummary(true, "There were some errors. Please fix them and try again")
+        <p></p>
+        <p></p>
+        // Submit (save) tipka
+        <p><input type="submit" value="Prijavi se" class="btn btn-danger" /></p>
+        <p> @Html.ActionLink("Prijava", "Prijava", new { @class = "btn btn-link" })   |   @Html.ActionLink("Registracija", "Registracija", new { @class = "btn btn-link" })</p>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

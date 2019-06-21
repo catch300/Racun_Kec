@@ -42,14 +42,14 @@ namespace Racun_kec_test.Models.MvcPaging
             {
                 sb.Append("<li class=prev>");
                 sb.Append("<a href=#>");
-                sb.Append(GeneratePageLink("&larr; Previous", currentPage - 1));
+                sb.Append(GeneratePageLink("&larr; Prethodna", currentPage - 1));
                 sb.Append("</a>");
                 sb.Append("</li>");
             }
             else {
                 sb.Append("<li class=\"prev disabled\">");
                 sb.Append("<a href=#>");
-                sb.Append("<span class=\"disabled\">&larr; Previous</span>");
+                sb.Append("<span class=\"disabled\">&larr; Prethodna</span>");
                 sb.Append("</a>");
                 sb.Append("</li>");
             }
@@ -130,7 +130,7 @@ namespace Racun_kec_test.Models.MvcPaging
             {
                 sb.Append("<li class=prev>");
                 sb.Append("<a href=#>");
-                sb.Append(GeneratePageLink("Next &rarr;", (currentPage + 1)));
+                sb.Append(GeneratePageLink("Sljedeća &rarr;", (currentPage + 1)));
                 sb.Append("</a>");
                 sb.Append("</li>");
             }
@@ -138,7 +138,7 @@ namespace Racun_kec_test.Models.MvcPaging
             {
                 sb.Append("<li class=\"prev disabled\">");
                 sb.Append("<a href=#>");
-                sb.Append("<span class=\"disabled\">Next &rarr;</span>");
+                sb.Append("<span class=\"disabled\">Sljedeća &rarr;</span>");
                 sb.Append("</a>");
                 sb.Append("</li>");
             }

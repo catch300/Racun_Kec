@@ -66,7 +66,7 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(x => Model.id_kupac, new { @class = "control-label" })
+            @Html.LabelFor(x => Model.Kupac, new { @class = "control-label" })
             <br />
 
             @Html.DropDownListFor(model => model.id_kupac, ViewData["Kupac"] as IEnumerable<SelectListItem>, "- Odaberite Kupca -", new { htmlAttributes = new { @Class = "form-control" } })

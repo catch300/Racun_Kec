@@ -45,10 +45,7 @@ namespace Racun_kec_test.Controllers
                         Session["Username"] = kor.ime_prezime;
                         return RedirectToAction("Index", "Racun");
                     }
-                    else
-                    {
-                        ModelState.AddModelError("", "Lozinka ili email su netočni, pokušajte ponovno!");
-                    }
+                   
                 }
             }
             ViewBag.Message = "Lozinka ili email su netočni, pokušajte ponovno!";
@@ -80,7 +77,7 @@ namespace Racun_kec_test.Controllers
                     }
                     catch (NullReferenceException ex)
                     {
-                        ViewBag.Message = "Registracija nije uspješna, pokušajte ponovno!";
+                        ViewBag.greska = "Registracija nije uspješna, pokušajte ponovno!";
                         return View("Registracija");
                     }
 

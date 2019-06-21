@@ -33,14 +33,14 @@ namespace Racun_kec_test.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "{0} mora biti broj!")]
         [Display(Name = "Telefon")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###/###-###}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:### ### ###}")]
         public long tel { get; set; }
 
         
         //[Range(0.0, long.MaxValue, ErrorMessage = "{0} ne smije biti negativna!")]
         [DataType(DataType.PhoneNumber, ErrorMessage ="{0} mora biti broj!")]
         [Display(Name = "Mobitel")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###/###-###}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:### ### ###}")]
         public long mob { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]

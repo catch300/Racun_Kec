@@ -40,7 +40,7 @@ namespace Racun_kec_test.Migrations
 
             var poduzeca = new List<Poduzece>
             {
-                new Poduzece {id_poduzece = 1,  naziv= "T-COM",  email="tcom@gmail.com", adresa="Zagreb 12A", grad="Zagreb", drzava="Hrvatska", mob=223-223, tel=223-223, odgovorna_osoba="Ana Anic", banka="PBZ", oib=98957602010, ziro_racun="10001"   },
+                new Poduzece {id_poduzece = 1,  naziv= "T-COM",  email="tcom@gmail.com", adresa="Roberta Frangeša Mihanoviæa 9", grad="Zagreb", drzava="Hrvatska", mob=08009000, tel=08009000, odgovorna_osoba="Ana Anic", banka="PBZ", oib=98957602010, ziro_racun="10001"   },
                
             };
             poduzeca.ForEach(s => context.Poduzeca.AddOrUpdate(p => p.naziv, s));
