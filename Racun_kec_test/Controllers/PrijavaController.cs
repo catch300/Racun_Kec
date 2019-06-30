@@ -47,7 +47,6 @@ namespace Racun_kec_test.Controllers
                     }
                    
                 }
-                ModelState.AddModelError("email", "Email not found or matched");
             }
             ViewBag.Message = "Lozinka ili email su netočni, pokušajte ponovno!";
             return RedirectToAction("Prijava");

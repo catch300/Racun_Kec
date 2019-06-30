@@ -12,6 +12,7 @@ namespace Racun_kec_test.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            
         }
 
         protected override void Seed(Racun_kec_test.BazaPovezivanje.BazaDbContext context)
@@ -34,7 +35,9 @@ namespace Racun_kec_test.Migrations
             var poduzeca = new List<Poduzece>
             {
                 new Poduzece {id_poduzece = 1,  naziv= "T-COM",  email="tcom@gmail.com", adresa="Roberta Frangeša Mihanoviæa 9", grad="Zagreb", drzava="Hrvatska", mob=08009000, tel=08009000, odgovorna_osoba="Ana Anic", banka="PBZ", oib=98957602010, ziro_racun="10001"   },
-               
+               new Poduzece {id_poduzece = 2,  naziv= "Meðimurje IPC d.d. Èakovec",  email="ipc@gmail.com", adresa="Èakovec 26 A", grad="Èakovec", drzava="Hrvatska", mob=08009123, tel=08009123, odgovorna_osoba="Josip Josipoviæ", banka="PBZ", oib=98957602020, ziro_racun="10002"   },
+               new Poduzece {id_poduzece = 3,  naziv= "Poduzeæe test",  email="test@gmail.com", adresa="test test", grad="Èakovec", drzava="Hrvatska", mob=08009123, tel=08009123, odgovorna_osoba="Josip Josipoviæ", banka="PBZ", oib=98957602020, ziro_racun="10002"   },
+
             };
             poduzeca.ForEach(s => context.Poduzeca.AddOrUpdate(p => p.naziv, s));
             context.SaveChanges();
@@ -71,6 +74,7 @@ namespace Racun_kec_test.Migrations
                  new Racun
                  { id_racun = 2,  naslov= "Drugi Racun", broj_racuna=2, datum_izdavanja=DateTime.Parse("08-05-2019"), oznaka="02/2019", pdv=25,
                  id_kupac = kupci.Single(s => s.ime_prezime == "Ivo Ivic").id_kupac,
+                 
                  },
             };
             foreach (Racun e in racuni)

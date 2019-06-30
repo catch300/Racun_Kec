@@ -72,7 +72,7 @@ namespace Racun_kec_test.Controllers
 
         public PartialViewResult LastInvoicesByCustomer(int id)
         {
-            var invoices = db.Racuni.Include(i => i.Kupac).Where(i => i.id_kupac == id && i.broj_racuna > 0).OrderByDescending(i => i.datum_izdavanja);
+            var invoices = db.Racuni.Include(i => i.Kupac).Where(i => i.id_kupac == id && i.broj_racuna > 0).OrderByDescending(i => i.broj_racuna);
             return PartialView("InvoicesListPartial", invoices.ToList());
         }
 
@@ -124,7 +124,7 @@ namespace Racun_kec_test.Controllers
         // GET: Racun/Print/5
         public ActionResult Print(int? id)
         {
-
+            Poduzece poduzece = new Poduzece();
             if (Request["lan"] != null)
             {
                 //valid culture name?
@@ -139,7 +139,8 @@ namespace Racun_kec_test.Controllers
                     System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(Request["lan"]);
             }
 
-
+            //poduzece.naziv = "T-COM";
+            //poduzece.adresa= "T-COM";
             ViewBag.Print = true;
             ViewBag.MyCompany = System.Configuration.ConfigurationManager.AppSettings["MyCompanyName"];
             ViewBag.MyCompanyID = System.Configuration.ConfigurationManager.AppSettings["MyCompanyID"];

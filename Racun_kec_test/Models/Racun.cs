@@ -55,6 +55,8 @@ namespace Racun_kec_test.Models
         public virtual ICollection<Stavke_racuna> Stavke_Racuna { get; set; }
 
         public virtual ICollection<Usluga> Usluge { get; set; }
+
+
         #region Calculated Fields
         
         public decimal IzracunPDV

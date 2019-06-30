@@ -1,10 +1,12 @@
 ﻿@{
 
-   
+
     int brojac = 1;
 }
 @using Racun_kec_test.Models
 @model IEnumerable<Racun_kec_test.Models.Poduzece>
+
+ 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -14,7 +16,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="UTF-8" />
- 
+
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -73,24 +75,25 @@
                     <tbody>
                         @{
 
-                            foreach (Poduzece p in Model)
-                            {
-
-                                <tr>
-                                    <td class="col-md-1">@brojac</td>
-                                    <td class="col-md-2">@p.naziv</td>
-                                    <td class="col-md-2">@p.adresa </td>
-                                    <td class="col-md-1">@p.tel<br>@p.email</td>
-                                    <td class="col-md-2">@p.odgovorna_osoba</td>
-                                    <td class="col-md-2">@p.ziro_racun</td>
-                                    <td class="col-md-2">@p.oib</td>
-                                    <td class="col-md-3">
-                                        @Html.ActionLink("Uredi", "UrediPoduzece", new { @id = @p.id_poduzece }, new { @class = "btn primary " })
-                                        @Html.ActionLink("Obriši", "BrisanjePoduzeca", new { @id = @p.id_poduzece }, new { @class = "btn danger " })
-                                    </td>
-                                </tr>
-                                brojac++;
-                            }
+                                        foreach (Poduzece p in Model)
+                                        {
+                                           
+                                        <tr>
+                                            <td class="col-md-1">@brojac</td>
+                                            <td class="col-md-2">@p.naziv</td>
+                                            <td class="col-md-2">@p.adresa </td>
+                                            <td class="col-md-1">@p.tel<br>@p.email</td>
+                                            <td class="col-md-2">@p.odgovorna_osoba</td>
+                                            <td class="col-md-2">@p.ziro_racun</td>
+                                            <td class="col-md-2">@p.oib</td>
+                                            <td class="col-md-3">
+                                                @Html.ActionLink("Uredi", "UrediPoduzece", new { @id = @p.id_poduzece }, new { @class = "btn primary " })
+                                                @Html.ActionLink("Obriši", "BrisanjePoduzeca", new { @id = @p.id_poduzece }, new { @class = "btn danger " })
+                                            </td>
+                                        </tr>
+                                        brojac++;
+                                }
+                            
 
                         }
                     </tbody>
@@ -102,10 +105,8 @@
 
     </div>
     <!--END PAGE CONTENT -->
-    
     <!--END MAIN WRAPPER -->
     <!-- FOOTER -->
-    
     <!--END FOOTER -->
     <!-- GLOBAL SCRIPTS -->
     <script src="~/assets/plugins/jquery-2.0.3.min.js"></script>

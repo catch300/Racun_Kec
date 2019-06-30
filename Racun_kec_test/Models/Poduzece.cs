@@ -67,6 +67,7 @@ namespace Racun_kec_test.Models
 
 
         public virtual ICollection<Korisnik> Korisnici{ get; set; }
+        public virtual ICollection<Racun> Racuni { get; set; }
 
     }
 }
