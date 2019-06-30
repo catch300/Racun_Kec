@@ -81,38 +81,44 @@ namespace Racun_kec_test.Controllers
         // GET: Racun
         public ActionResult Index(string filter, int? page, int? pagesize)
         {
-            
-            #region remember filter stuff
-            if (filter == "clear")
+            if (Session["UserID"] == null)
             {
-                Session["invoiceText"] = null;
-                
+                return RedirectToAction("Prijava", "Prijava");
             }
             else
             {
-                if ((Session["invoiceText"] != null) || (Session["invoiceFrom"] != null) || (Session["invoiceTo"] != null))
+                #region remember filter stuff
+                if (filter == "clear")
                 {
-                    return RedirectToAction("Search", new { text = Session["invoiceText"] });
+                    Session["invoiceText"] = null;
+
                 }
+                else
+                {
+                    if ((Session["invoiceText"] != null) || (Session["invoiceFrom"] != null) || (Session["invoiceTo"] != null))
+                    {
+                        return RedirectToAction("Search", new { text = Session["invoiceText"] });
+                    }
+                }
+                #endregion
+
+                int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+                var racuni = db.Racuni.Include(i => i.Stavke_Racuna).Include(i => i.Kupac);
+
+
+
+                IPagedList<Racun> invoices_paged = null;
+
+
+                racuni = racuni.Where(i => i.broj_racuna > 0);
+
+
+                invoices_paged = racuni.OrderByDescending(i => i.datum_izdavanja).ToPagedList(currentPageIndex, pagesize ?? defaultPageSize);
+
+                FillIndexViewBags(invoices_paged);
+
+                return View(invoices_paged);
             }
-            #endregion
-
-            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
-            var racuni = db.Racuni.Include(i => i.Stavke_Racuna).Include(i => i.Kupac);
-
-            
-
-            IPagedList<Racun> invoices_paged = null;
-            
-            
-                racuni = racuni.Where(i => i.broj_racuna > 0);              
-            
-
-            invoices_paged = racuni.OrderByDescending(i => i.datum_izdavanja).ToPagedList(currentPageIndex, pagesize ?? defaultPageSize);
-
-            FillIndexViewBags(invoices_paged);
-
-            return View(invoices_paged);
         }
 
         // GET: Racun/Print/5

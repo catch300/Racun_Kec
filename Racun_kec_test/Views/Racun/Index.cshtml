@@ -91,14 +91,14 @@
                 @Html.DisplayFor(modelItem => item.datum_izdavanja)
             </td>
             <td nowrap>
-                @String.Format("{0:#.00}", item.Stavke_Racuna.Sum(i => i.Ukupno))
+                @String.Format("{0:0.00}", item.Stavke_Racuna.Sum(i => i.Ukupno))
             </td>
             @* <td>
                     @String.Format("{0:C}", item.InvoiceDetails.Sum(i => i.TotalPlusVAT))
                 </td>*@
 
             <td nowrap>
-                @String.Format("{0:#.00}", item.UkupnoplusPDV)
+                @String.Format("{0:0.00}", item.UkupnoplusPDV)
 
 
 

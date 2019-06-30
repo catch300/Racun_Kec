@@ -19,12 +19,17 @@ namespace Racun_kec_test.Controllers
         // GET: Kupac
         public ActionResult Index()
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Prijava", "Prijava");
+            }
             return View(db.Kupci.ToList());
         }
 
         // GET: Kupac/Details/5
         public ActionResult Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

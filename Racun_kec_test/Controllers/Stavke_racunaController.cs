@@ -32,16 +32,23 @@ namespace Racun_kec_test.Controllers
         //
         // GET: /InvoiceDetails/
 
-        public ViewResult Index()
+        public ActionResult Index()
         {
-            var invoicedetails = db.Stavke_racuna.Include(i => i.Racun);
-            return View(invoicedetails.ToList());
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Prijava", "Prijava");
+            }
+            else
+            {
+                var invoicedetails = db.Stavke_racuna.Include(i => i.Racun);
+                return View(invoicedetails.ToList());
+            }
         }
 
         //
         // GET: /InvoiceDetails/Details/5
 
-        public ViewResult Details(int id)
+        public ActionResult Details(int id)
         {
             Stavke_racuna invoicedetails = db.Stavke_racuna.Find(id);
             return View(invoicedetails);
