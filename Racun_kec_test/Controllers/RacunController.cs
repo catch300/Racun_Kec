@@ -118,7 +118,7 @@ namespace Racun_kec_test.Controllers
         // GET: Racun/Print/5
         public ActionResult Print(int? id)
         {
-
+            VievModel vievModel = new VievModel();
             if (Request["lan"] != null)
             {
                 //valid culture name?
@@ -145,6 +145,8 @@ namespace Racun_kec_test.Controllers
 
             //Racun racun = db.Racuni.Find(id);
             //    return View(racun);
+
+            //vievModel = db.Racuni.Where(a => a.id_racun == id).FirstOrDefault();
             var racun = db.Racuni.Where(a => a.id_racun == id).FirstOrDefault();
             return View(racun);
 
@@ -227,6 +229,7 @@ namespace Racun_kec_test.Controllers
 
                 if (sljedeci_racun != null)
                     racun.broj_racuna = sljedeci_racun.broj_racuna + 1; //assign next available invoice number 
+
                 racun.datum_izdavanja = DateTime.Now;
 
                 ViewBag.Warning = "The current item is going to be converted on Invoice. A new InvoiceNumber has been pre-assigned.  Click on 'Save' to continue.";

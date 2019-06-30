@@ -6,7 +6,7 @@
 *@
 
 @using Racun_kec_test.Models
-@model Racun
+@model VievModel
 
 
 @{
@@ -27,24 +27,28 @@
     <blockquote>
         <p>
             <strong>
+                @Html.DisplayFor(Model => Model.Poduzeca.naziv)
                 @ViewBag.MyCompany
             </strong>
         </p>
 
         <p>
-
+            ID poduzeca: <strong> @Html.DisplayFor(Model => Model.Poduzeca.id_poduzece)</strong>
             ID poduzeca: <strong>@ViewBag.MyCompanyID</strong>
         </p>
 
         <p>
+            @Html.DisplayFor(Model => Model.Poduzeca.adresa)
             @ViewBag.MyCompanyAddress
         </p>
         <hr />
         <p>
+            Broj poduzeca: @Html.DisplayFor(Model => Model.Poduzeca.mob)
             Broj poduzeca: @ViewBag.MyCompanyPhone
         </p>
 
         <p>
+            @Html.DisplayFor(Model => Model.Poduzeca.email)
             @ViewBag.MyEmail
         </p>
 
@@ -80,7 +84,7 @@
         </td>
         <td>
             <h3>Oznaka :</h3>
-            @Html.Raw(Model.oznaka.Replace(Environment.NewLine, "<br/>"))
+            @Html.Raw(Model.Racuni.oznaka.Replace(Environment.NewLine, "<br/>"))
         </td>
     </tr>
 </table>
@@ -116,7 +120,7 @@
     }
     </thead>
 
-    @foreach (var item in Model.Stavke_Racuna)
+    @foreach (var item in Model.Racuni.Stavke_Racuna)
     {
 
         var invoiceDetail = "invoiceDetail" + item.id_stavke_racuna;
@@ -149,12 +153,12 @@
             <tr>
                 <td class="invoiceFooterTitle">Ukupno:</td>
                 <td></td>
-                <td>@Model.Stavke_Racuna.Sum(i => i.kolicina) </td>
+                <td>@Model.Racuni.Stavke_Racuna.Sum(i => i.kolicina) </td>
 
                 
                 <td></td>
                 <td> </td>
-                <td>@String.Format("{0:#.00}", Model.NetoUkupno) </td>
+                <td>@String.Format("{0:#.00}", Model.Racuni.NetoUkupno) </td>
 
             </tr>
         </tfoot>
@@ -164,18 +168,18 @@
 
     <tr>
         <td colspan="5" class="invoiceFooterTitle">Osnovica:</td>
-        <td width="200" class="invoiceFooterValue">@String.Format("{0:#.00}",Model.NetoUkupno) kn</td>
+        <td width="200" class="invoiceFooterValue">@String.Format("{0:#.00}",Model.Racuni.NetoUkupno) kn</td>
     </tr>
     <tr>
         <td colspan="5" class="invoiceFooterTitle">PDV</td>
-        <td width="200" class="invoiceFooterValue">@String.Format("{0:#.00}", Model.IzracunPDV) kn</td>
+        <td width="200" class="invoiceFooterValue">@String.Format("{0:#.00}", Model.Racuni.IzracunPDV) kn</td>
     </tr>
 
     
 
     <tr>
         <td colspan="5" class="invoiceFooterTitle">Ukupno za platiti: </td>
-        <td class="invoiceFooterValue">@String.Format("{0:#.00}", Model.UkupnoplusPDV) kn</td>
+        <td class="invoiceFooterValue">@String.Format("{0:#.00}", Model.Racuni.UkupnoplusPDV) kn</td>
     </tr>
 </table>
 

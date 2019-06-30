@@ -202,6 +202,7 @@
     <Compile Include="Models\Poduzece.cs" />
     <Compile Include="Models\Racun.cs" />
     <Compile Include="Models\Usluga.cs" />
+    <Compile Include="Models\VievModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

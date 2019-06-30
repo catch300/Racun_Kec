@@ -89,7 +89,7 @@
             @Html.LabelFor(model => model.datum_izdavanja, new { @class = "control-label" })
 
 
-            @Html.EditorFor(model => model.datum_izdavanja, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.datum_izdavanja,"Calendar", new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.datum_izdavanja, "", new { @class = "text-danger" })
         </div>
      
