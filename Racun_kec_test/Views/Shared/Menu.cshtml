@@ -1,22 +1,25 @@
 ﻿  <nav class="noprint">
-        <ul class="nav" id="menu">
-          
+    <ul class="nav" id="menu">
 
-            
-           <li >@Html.ActionLink("Popis računa", "Index", "Racun")</li>
-            
-            
-            
-        </ul>
-        <ul class="nav" id="adminmenu">
-            <li class="dropdown" data-dropdown="dropdown">
-              <a href="#" class="dropdown-toggle">Admin</a>
-              <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Popis računa", "Index", "Racun")</li>
+
+    </ul>
+
+    <ul class="nav" id="menu">
+
+        <li>@Html.ActionLink("Podaci korisnika", "osobni_podaci", "Korisnik")</li>
+
+    </ul>
+
+    <ul class="nav" id="adminmenu">
+        <li class="dropdown" data-dropdown="dropdown">
+            <a href="#" class="dropdown-toggle">Admin</a>
+            <ul class="dropdown-menu">
                 <li><a href="@Url.Action("PoduzeceIndex", "Korisnik")">Ažuriranje poduzeća</a></li>
                 <li><a href="@Url.Action("Index", "Kupac")">Ažuriranje kupca</a></li>
-              </ul>
-            </li>
-        </ul>
+            </ul>
+        </li>
+    </ul>
 
-        
-   </nav>
+
+</nav>

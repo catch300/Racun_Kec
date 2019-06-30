@@ -57,6 +57,41 @@ namespace Racun_kec_test.Controllers
             }
         }
 
+        public ActionResult UrediKorisnika(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Korisnik korisnik = baza.Korisnici.Find(id);
+            korisnik.licenca = DateTime.Now;
+            if (korisnik == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            ViewData["Poduzece"] = new SelectList(baza.Poduzeca, "id_poduzece", "naziv");
+            return View(korisnik);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UrediKorisnika([Bind(Include = "id_korisnik,ime_prezime,email,lozinka,licenca,aktivan,id_poduzece")] Korisnik korisnik)
+        {
+
+
+            if (ModelState.IsValid)
+            {
+
+                baza.Entry(korisnik).State = EntityState.Modified;
+                baza.SaveChanges();
+                return RedirectToAction("osobni_podaci");
+            }
+
+            ViewData["Poduzece"] = new SelectList(baza.Poduzeca, "id_poduzece", "naziv");
+            return View(korisnik);
+        }
 
         //PODUZEĆE
         // GET: Poduzece
@@ -95,7 +130,8 @@ namespace Racun_kec_test.Controllers
         // GET: Poduzece/Create
         public ActionResult KreiranjePoduzeca()
         {
-            return View();
+            Poduzece poduzece = new Poduzece();
+            return View(poduzece);
         }
 
         // POST: Poduzece/Create
@@ -103,7 +139,7 @@ namespace Racun_kec_test.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult KreiranjePoduzeca([Bind(Include = "id_poduzece, naziv,adresa,grad,drzava,tel,mob,email,oib,odgovorna_osoba,ziro_racun,banka,pdv,biljeska,pecat")] Poduzece poduzece)
+        public ActionResult KreiranjePoduzeca([Bind(Include = "id_poduzece, naziv,adresa,grad,drzava,tel,mob,email,oib,odgovorna_osoba,ziro_racun,banka")] Poduzece poduzece)
         {
             if (ModelState.IsValid)
             {
@@ -172,7 +208,7 @@ namespace Racun_kec_test.Controllers
             Poduzece poduzece = baza.Poduzeca.Find(id);
             baza.Poduzeca.Remove(poduzece);
             baza.SaveChanges();
-            return RedirectToAction("PoduzeceIndex");
+            return RedirectToAction("Prijava", "Prijava");
         }
 
         protected override void Dispose(bool disposing)

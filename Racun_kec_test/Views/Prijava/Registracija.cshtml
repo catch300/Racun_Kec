@@ -42,10 +42,10 @@
         @Html.ValidationMessageFor(model => model.lozinka, "", new { @class = "text-danger" })
         <p></p>
         <p></p>
-        @Html.LabelFor(model => model.licenca, new { @class = "control-label" })
+        @*@Html.LabelFor(model => model.licenca, new { @class = "control-label" })
         @Html.EditorFor(model => model.licenca, new { htmlAttributes = new { @class = "form-control", placeholder = "Licenca" } })
-        @Html.ValidationMessageFor(model => model.licenca, "", new { @class = "text-danger" })
-
+        @Html.ValidationMessageFor(model => model.licenca, "", new { @class = "text-danger" })*@
+        @Html.HiddenFor(model => model.licenca)
         <p></p>
         <p></p>
         @Html.LabelFor(model => model.aktivan, new { @class = "control-label" })
@@ -53,6 +53,12 @@
         @Html.ValidationMessageFor(model => model.aktivan, "", new { @class = "text-danger" })
         <p></p>
         <p></p>
+
+        @Html.LabelFor(x => Model.id_poduzece, htmlAttributes: new { @class = "control-label" })
+        <br />
+
+        @Html.DropDownListFor(model => model.id_poduzece, ViewData["Poduzece"] as IEnumerable<SelectListItem>, "- Odaberite poduzeće -", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.id_poduzece, "", new { @class = "text-danger" })
 
         @ViewBag.greska
 

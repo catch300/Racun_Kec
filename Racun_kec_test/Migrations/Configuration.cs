@@ -29,14 +29,7 @@ namespace Racun_kec_test.Migrations
             kupci.ForEach(s => context.Kupci.AddOrUpdate(p => p.ime_prezime, s));
             context.SaveChanges();
 
-            var korisnici = new List<Korisnik>
-            {
-                new Korisnik {id_korisnik = 1, ime_prezime = "Admin",  email="admin@mev.hr",lozinka="admin123",  aktivan= "DA", licenca=DateTime.Parse("08-05-2019") },
-                new Korisnik {id_korisnik = 2, ime_prezime = "Mario",  email="mario@mev.hr",lozinka="admin123",  aktivan= "DA", licenca=DateTime.Parse("08-05-2019") }
-                
-            };
-            korisnici.ForEach(s => context.Korisnici.AddOrUpdate(p => p.ime_prezime, s));
-            context.SaveChanges();
+           
 
             var poduzeca = new List<Poduzece>
             {
@@ -44,6 +37,27 @@ namespace Racun_kec_test.Migrations
                
             };
             poduzeca.ForEach(s => context.Poduzeca.AddOrUpdate(p => p.naziv, s));
+            context.SaveChanges();
+
+            var korisnici = new List<Korisnik>
+            {
+                new Korisnik {id_korisnik = 1, ime_prezime = "Admin",  email="admin@mev.hr",lozinka="admin123",  aktivan= "DA", licenca=DateTime.Parse("08-05-2019"),
+                    id_poduzece = poduzeca.Single(s=> s.naziv == "T-COM").id_poduzece},
+                new Korisnik {id_korisnik = 2, ime_prezime = "Mario",  email="mario@mev.hr",lozinka="admin123",  aktivan= "DA", licenca=DateTime.Parse("08-05-2019"),
+                    id_poduzece = poduzeca.Single(s=> s.naziv == "T-COM").id_poduzece,
+                },
+
+            };
+            foreach (Korisnik e in korisnici)
+            {
+                var enrollmentInDataBase = context.Korisnici.Where(
+                    s =>
+                         s.Poduzece.id_poduzece== e.id_poduzece).SingleOrDefault();
+                if (enrollmentInDataBase == null)
+                {
+                    context.Korisnici.Add(e);
+                }
+            }
             context.SaveChanges();
 
             var racuni = new List<Racun>

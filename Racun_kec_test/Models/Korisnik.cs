@@ -39,5 +39,8 @@ namespace Racun_kec_test.Models
         [Display(Name = "Aktivan (DA/NE)")]
         public string aktivan { get; set; }
 
+        public int id_poduzece { get; set; }
+        public virtual Poduzece Poduzece { get; set; }
+        
     }
 }

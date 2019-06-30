@@ -97,3 +97,4 @@ D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_tes
 D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_test.csprojAssemblyReference.cache
 D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_test.Migrations.pdv.resources
 D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_test.Migrations.pdv_fix.resources
+D:\VisualStudio\Racun_test\Racun_kec_test\Racun_kec_test\obj\Debug\Racun_kec_test.Migrations.Poduzece_korisnik.resources

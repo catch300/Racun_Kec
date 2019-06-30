@@ -47,6 +47,7 @@ namespace Racun_kec_test.Controllers
                     }
                    
                 }
+                ModelState.AddModelError("email", "Email not found or matched");
             }
             ViewBag.Message = "Lozinka ili email su netočni, pokušajte ponovno!";
             return RedirectToAction("Prijava");
@@ -57,6 +58,8 @@ namespace Racun_kec_test.Controllers
         {
 
             Korisnik k = new Korisnik();
+            k.licenca = DateTime.Now;
+            ViewData["Poduzece"] = new SelectList(_dbContext.Poduzeca, "id_poduzece", "naziv");
             return View(k);
         }
 
@@ -64,7 +67,7 @@ namespace Racun_kec_test.Controllers
         public ActionResult Registracija(Korisnik k )
         {
             var provjeraEmaila = _dbContext.Korisnici.Where(m => m.email == k.email).SingleOrDefault(); //checking if the emailid already exits for any user
-
+            ViewData["Poduzece"] = new SelectList(_dbContext.Poduzeca, "id_poduzece", "naziv");
             if (ModelState.IsValid)
             {
 
@@ -94,6 +97,7 @@ namespace Racun_kec_test.Controllers
                 }
             }
 
+            
             else
             {
                 return View("Registrcija");

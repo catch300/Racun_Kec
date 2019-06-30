@@ -65,8 +65,8 @@ namespace Racun_kec_test.Models
         [Display(Name = "Banka")]
         public string banka { get; set; }
 
-        
 
+        public virtual ICollection<Korisnik> Korisnici{ get; set; }
 
     }
 }

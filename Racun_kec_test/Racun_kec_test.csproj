@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201906161524349_pdv_fix.Designer.cs">
       <DependentUpon>201906161524349_pdv_fix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906301354565_Poduzece_korisnik.cs" />
+    <Compile Include="Migrations\201906301354565_Poduzece_korisnik.Designer.cs">
+      <DependentUpon>201906301354565_Poduzece_korisnik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Paging\IPagedList.cs" />
     <Compile Include="Models\Paging\PagedList.cs" />
@@ -421,6 +425,7 @@
     <Content Include="Views\Shared\_LayoutPrint.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutStudent.cshtml" />
+    <Content Include="Views\Korisnik\UrediKorisnika.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -451,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906161524349_pdv_fix.resx">
       <DependentUpon>201906161524349_pdv_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906301354565_Poduzece_korisnik.resx">
+      <DependentUpon>201906301354565_Poduzece_korisnik.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

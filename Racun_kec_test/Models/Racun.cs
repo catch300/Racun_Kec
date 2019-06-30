@@ -42,7 +42,7 @@ namespace Racun_kec_test.Models
         [Display(Name = "Datum izdavanja")]
         //ako ne napišemo fiksno ovaj format Google Chrome nece dobro prikazati datumsko
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy hh:mm}", ApplyFormatInEditMode = true)]
         public DateTime datum_izdavanja { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
