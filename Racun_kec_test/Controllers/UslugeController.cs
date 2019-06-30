@@ -23,6 +23,15 @@ namespace Racun_kec_test.Controllers
             return RedirectToAction("Prijava", "Prijava");
         }
 
+        public PartialViewResult IndexByInvoice(int id)
+        {
+            ViewBag.InvoiceID = id;
+            var invoice = db.Racuni.Where(i => i.id_racun == id).FirstOrDefault();
+            ViewBag.Invoice = invoice;
+            var invoicedetails = db.Usluge.Include(i => i.Racun).Where(i => i.id_racun == id);
+            return PartialView("Index", invoicedetails.ToList());
+        }
+
         // GET: Usluge
         public ActionResult Index()
         {
@@ -55,38 +64,42 @@ namespace Racun_kec_test.Controllers
         // GET: Usluge/Create
         public ActionResult Create(int? id)
         {
-            Usluga usluga = new Usluga();
+            Racun invoice = null;
+            Usluga usluga = new Usluga() ;
 
             usluga.mjerne_jedinice = usluga.DohvatiMjerneJedinice();
 
+
             ViewBag.InvoiceID = new SelectList(db.Racuni, "id_racun", "naslov");
-            Racun racuni= null;
             
 
             if (id.HasValue)
             {
-                racuni = (from ii in db.Racuni
+                invoice = (from ii in db.Racuni
                            where ii.id_racun == id
                            select ii).FirstOrDefault();
 
-                if (racuni != null)
+                if (invoice != null)
                 {
-                    usluga = new Usluga();
                     usluga.id_racun = id.Value;
-                    usluga.Racun = racuni;
-                   
+                    usluga.Racun = invoice;
+                    usluga.cijena = 1;
+                  
 
-                    if (racuni.Usluge.Count == 0)
-                    { //if this is the first line, we may want to name it as the invoice.
-                        usluga.naziv = racuni.naslov;
-                    }
+                   
                     ViewBag.InvoiceID = new SelectList(db.Racuni, "id_racun", "naslov", id.Value);
                 }
             }
 
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("Create", usluga);
+            }
+            else
+            {
                 return View("Create", usluga);
-            
-        } 
+            }
+        }
 
         // POST: Usluge/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

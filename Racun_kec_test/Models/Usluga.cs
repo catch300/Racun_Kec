@@ -9,25 +9,25 @@ using System.Web.Mvc;
 
 namespace Racun_kec_test.Models
 {
-        [Table("usluge")]
-        public  class Usluga
-        {
-            
-            [Key]
-            public int id_usluga { get; set; }
+    [Table("usluge")]
+    public class Usluga
+    {
 
-            [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-            [Display(Name = "Naziv")]
-            public string naziv { get; set; }
+        [Key]
+        public int id_usluga { get; set; }
 
-            [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-            [Range(0.0, double.MaxValue, ErrorMessage = "{0} ne smije biti negativna!")]
-            [Display(Name = "Cijena")]
-            public double cijena { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [Display(Name = "Naziv")]
+        public string naziv { get; set; }
 
-            [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-            [Display(Name = "Mjerna jedinica")]
-            public string mjerna_jedinica { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [Range(0.0, double.MaxValue, ErrorMessage = "{0} ne smije biti negativna!")]
+        [Display(Name = "Cijena")]
+        public double cijena { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [Display(Name = "Mjerna jedinica")]
+        public string mjerna_jedinica { get; set; }
 
         [NotMapped]
         public List<SelectListItem> mjerne_jedinice { get; set; }
@@ -44,16 +44,15 @@ namespace Racun_kec_test.Models
                  new SelectListItem{ Value="7",Text="l"},
                  new SelectListItem{ Value="1",Text="dl"},
                  new SelectListItem{ Value="2",Text="cl"},
-                 
+
              };
             myList = data.ToList();
             return myList;
         }
 
 
-        public  int id_racun { get; set; }
+        public int id_racun { get; set; }
         public virtual Racun Racun { get; set; }
+
     }
-
-
 }
