@@ -99,7 +99,7 @@ namespace Racun_kec_test.Controllers
             
             else
             {
-                return View("Registrcija");
+                return View("Registracija");
             }
 
 
